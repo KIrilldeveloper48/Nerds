@@ -7,7 +7,7 @@
   <link rel="icon" href="favicon.ico"> <!-- 32×32 -->
   <link rel="icon" href="img/icons/favicon-32.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.min.css">
 </head>
 
 <body class="body">
@@ -15,27 +15,26 @@
   <header class="header">
     <div class="container">
       <!-- Navigation -->
-      <nav class="nav header__nav">
+      <nav class="nav header__nav w-medium">
         <!--Logo-->
         <div class="logo header__logo">
-          <a class="link logo__link" href="\.">
+          <a class="link logo__link" href="../">
             <img class="logo__img" src="img/logo/nerds-logo.svg" width="160" height="65" alt="Логотип компании Нёрдс" />
           </a>
         </div>
         <!-- Site-menu -->
         <ul class="site-nav header__site-nav list">
-          <!-- TODO: Убрать спаны и поменять классы. Сделать доп. класс для ссылок -->
           <li class="site-nav__item">
-            <a class="link" href="\.">Студия</a>
+            <a class="link" href="../">Студия</a>
           </li>
           <li class="site-nav__item">
-            <a class="link" href="#">Клиенты</a>
+            <a class="link" href="../#section-clients">Клиенты</a>
           </li>
           <li class="site-nav__item">
             <a class="link nav--current" href="catalog.html">Магазин</a>
           </li>
           <li class="site-nav__item">
-            <a class="link" href="#">Контакты</a>
+            <a class="link" href="#section-contacts">Контакты</a>
           </li>
         </ul>
 
@@ -48,8 +47,8 @@
       </nav>
 
       <!-- Title -->
-      <h1 class="title catalog-title">Магазин готовых шаблонов</h1>
-
+      <h1 class="catalog-title s-max w-bold">Магазин готовых шаблонов</h1>
+    </div>
   </header>
 
 
@@ -58,14 +57,14 @@
 
 
     <!-- Filters -->
-    <section class="filters">
+    <section class="filters" aria-labelledby="filters" id="section-filters">
 
-      <h2 class="visually-hidden"> Фильтр товаров</h2>
-      <form method="post" action="https://echo.htmlacademy.ru">
+      <h2 class="visually-hidden" id="filters"> Настройка фильтров товаров</h2>
+      <form method="get" action="https://echo.htmlacademy.ru" target="_blank">
 
         <!-- Price-slider -->
         <fieldset>
-          <legend class="filter__title">Стоимость</legend>
+          <legend class="w-bold s-more lh-large t-upper">Стоимость</legend>
 
           <div class="range-slider">
             <div class="scale">
@@ -95,7 +94,7 @@
 
         <!-- Grid-Filter -->
         <fieldset class="filter">
-          <legend class="filter__title">Сетка</legend>
+          <legend class="w-bold s-more lh-large t-upper">Сетка</legend>
           <ul class="options__list">
             <li class="options__item">
               <input class="visually-hidden radio__input" type="radio" name="grid" value="adaptive" id="adaptive"
@@ -115,7 +114,7 @@
 
         <!-- Features-Filter -->
         <fieldset class="filter">
-          <legend class="filter__title">Особенности</legend>
+          <legend class="w-bold s-more lh-large t-upper">Особенности</legend>
           <ul class="options__list">
             <li class="options__item">
               <input class="visually-hidden check__input" type="checkbox" name="slider" id="slider" checked>
@@ -141,22 +140,21 @@
         </fieldset>
 
         <!-- Submit-button -->
-        <button class="button button--theme3 filters__button" type="submit"><span>Показать</span></button>
+        <button class="button button--theme3 filters__button" type="submit"><span
+            class="w-medium t-upper">Показать</span></button>
 
       </form>
-
     </section>
 
-    <!-- Products catalog -->
-    <section class="products">
-      <h2 class="visually-hidden">Список шаблонов</h2>
+    <div class="catalog">
+      <!-- Sorts-->
+      <section class="sorts" aria-labelledby="sorts" id="section-sorts">
+        <h2 class="visually-hidden" id="sorts">Настройка сортировки списка товаров</h2>
 
-      <!-- Sort-->
-      <div class="sort">
-        <h3 class="title sort__title">Сортировать</h3>
         <!-- Sort-type -->
-        <form class="sort__form">
-          <fieldset class="fields__sort">
+        <form class="sort__form t-upper">
+          <span class="w-bold s-more lh-large">Сортировать</span>
+          <fieldset class="fields__sort s-small">
             <legend class="visually-hidden">Тип сортировки</legend>
             <input class="button sort__input visually-hidden" type="radio" name="sort" value="price" id="sort-price"
               checked>
@@ -173,180 +171,194 @@
             <input class="button order__input visually-hidden" type="radio" name="order" value="asc" id="order-asc"
               checked>
             <label class="order__label" for="order-asc"><span class="visually-hidden">По возрастанию</span>
-              <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg aria-hidden="true" width="11" height="10" viewBox="0 0 11 10" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
                 <path d="M5.5 10L0 0H11" />
               </svg>
             </label>
             <input class="button order__input visually-hidden" type="radio" name="order" value="desc" id="order-desc">
             <label class="order__label" for="order-desc"><span class="visually-hidden">По убыванию</span>
-              <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg aria-hidden="true" width="11" height="10" viewBox="0 0 11 10" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
                 <path d="M5.5 0L0 10H11L5.5 0Z" />
               </svg>
             </label>
           </fieldset>
         </form>
-      </div>
+      </section>
 
 
-      <!-- Products-list -->
-      <ul class="list products__list">
+      <!-- Products catalog -->
+      <section class="products" aria-labelledby="products" id="section-products">
+        <h2 class="visually-hidden" id="products">Список товаров</h2>
 
-        <!-- Sedona -->
-        <li class="product__item">
-          <div class="product__header">
-            <span class="round"></span>
-            <span class="round"></span>
-            <span class="round"></span>
-          </div>
+        <!-- Products-list -->
+        <ul class="list products__list">
 
-          <img class="product__img" src="img/all/sedona.png" width="358" height="578"
-            alt="Вид главной страницы сайта Седона">
-          <div class="product__desc">
-            <a class="link" href="item.html">
-              <h3 class="text__caption product__caption">Sedona</h3>
-            </a>
-            <p class="text product_text">информационный сайт <br>для туристов</p>
-            <button class="button button--theme product_button" type="button">9900 ₽</button>
-          </div>
-        </li>
+          <!-- Sedona -->
+          <li class="product__item">
+            <div class="product__header">
+              <span class="round"></span>
+              <span class="round"></span>
+              <span class="round"></span>
+            </div>
 
-        <!-- Pink -->
-        <li class="product__item">
-          <div class="product__header">
-            <span class="round"></span>
-            <span class="round"></span>
-            <span class="round"></span>
-          </div>
+            <img class="product__img" src="img/all/sedona.png" width="358" height="578"
+              alt="Вид главной страницы сайта Седона">
+            <div class="product__desc">
+              <a class="link" href="item.html">
+                <h3 class="s-more w-bold">Sedona</h3>
+              </a>
+              <p class="product__text">информационный сайт <br>для туристов</p>
+              <button class="button button--theme product__button" type="button">9900 ₽</button>
+            </div>
+          </li>
 
-          <img class="product__img" src="img/all/pink.png" width="358" height="578"
-            alt="Вид главной страницы сайта Пинк">
-          <div class="product__desc">
-            <a class="link" href="item.html">
-              <h3 class="text__caption product__caption">Pink App</h3>
-            </a>
-            <p class="text product_text">Продуктовый лендинг <br>приложения для iOS и Android</p>
-            <button class="button button--theme product_button" type="button">9900 ₽</button>
-          </div>
-        </li>
+          <!-- Pink -->
+          <li class="product__item">
+            <div class="product__header">
+              <span class="round"></span>
+              <span class="round"></span>
+              <span class="round"></span>
+            </div>
 
-        <!-- Barbershop -->
-        <li class="product__item">
-          <div class="product__header">
-            <span class="round"></span>
-            <span class="round"></span>
-            <span class="round"></span>
-          </div>
+            <img class="product__img" src="img/all/pink.png" width="358" height="578"
+              alt="Вид главной страницы сайта Пинк">
+            <div class="product__desc">
+              <a class="link" href="item.html">
+                <h3 class="s-more w-bold">Pink App</h3>
+              </a>
+              <p class=" product__text">Продуктовый лендинг <br>приложения для iOS и Android</p>
+              <button class="button button--theme product__button" type="button">9900 ₽</button>
+            </div>
+          </li>
 
-          <img class="product__img" src="img/all/barber.png" width="358" height="578"
-            alt="Вид главной страницы сайта Барбершоп">
-          <div class="product__desc">
-            <a class="link" href="item.html">
-              <h3 class="text__caption product__caption">Barbershop</h3>
-            </a>
-            <p class="text product_text">Сайт салона красоты.<br>Для мужчин, да.</p>
-            <button class="button button--theme product_button" type="button">9900 ₽</button>
-          </div>
-        </li>
+          <!-- Barbershop -->
+          <li class="product__item">
+            <div class="product__header">
+              <span class="round"></span>
+              <span class="round"></span>
+              <span class="round"></span>
+            </div>
 
-        <!-- Mishka -->
-        <li class="product__item">
-          <div class="product__header">
-            <span class="round"></span>
-            <span class="round"></span>
-            <span class="round"></span>
-          </div>
+            <img class="product__img" src="img/all/barber.png" width="358" height="578"
+              alt="Вид главной страницы сайта Барбершоп">
+            <div class="product__desc">
+              <a class="link" href="item.html">
+                <h3 class="s-more w-bold">Barbershop</h3>
+              </a>
+              <p class=" product__text">Сайт салона красоты.<br>Для мужчин, да.</p>
+              <button class="button button--theme product__button" type="button">9900 ₽</button>
+            </div>
+          </li>
 
-          <img class="product__img" src="img/all/mishka.png" width="358" height="578"
-            alt="Вид главной страницы сайта Мишка">
-          <div class="product__desc">
-            <a class="link" href="item.html">
-              <h3 class="text__caption product__caption">MISHKA</h3>
-            </a>
-            <p class="text product_text">Интернет-магазин <br>вязаных игрушек</p>
-            <button class="button button--theme product_button" type="button">9900 ₽</button>
-          </div>
-        </li>
+          <!-- Mishka -->
+          <li class="product__item">
+            <div class="product__header">
+              <span class="round"></span>
+              <span class="round"></span>
+              <span class="round"></span>
+            </div>
 
-        <!-- Learning -->
-        <li class="product__item">
-          <div class="product__header">
-            <span class="round"></span>
-            <span class="round"></span>
-            <span class="round"></span>
-          </div>
+            <img class="product__img" src="img/all/mishka.png" width="358" height="578"
+              alt="Вид главной страницы сайта Мишка">
+            <div class="product__desc">
+              <a class="link" href="item.html">
+                <h3 class="s-more w-bold">MISHKA</h3>
+              </a>
+              <p class=" product__text">Интернет-магазин <br>вязаных игрушек</p>
+              <button class="button button--theme product__button" type="button">9900 ₽</button>
+            </div>
+          </li>
 
-          <img class="product__img" src="img/all/learning.png" width="358" height="578"
-            alt="Вид главной страницы сайта Курсов">
-          <div class="product__desc">
-            <a class="link" href="item.html">
-              <h3 class="text__caption product__caption">A Plus</h3>
-            </a>
-            <p class="text product_text">Лендинг курсов <br>повышения квалификации</p>
-            <button class="button button--theme product_button" type="button">9900 ₽</button>
-          </div>
-        </li>
+          <!-- Learning -->
+          <li class="product__item">
+            <div class="product__header">
+              <span class="round"></span>
+              <span class="round"></span>
+              <span class="round"></span>
+            </div>
 
-        <!-- Kvas -->
-        <li class="product__item">
-          <div class="product__header">
-            <span class="round"></span>
-            <span class="round"></span>
-            <span class="round"></span>
-          </div>
+            <img class="product__img" src="img/all/learning.png" width="358" height="578"
+              alt="Вид главной страницы сайта Курсов">
+            <div class="product__desc">
+              <a class="link" href="item.html">
+                <h3 class="s-more w-bold">A Plus</h3>
+              </a>
+              <p class=" product__text">Лендинг курсов <br>повышения квалификации</p>
+              <button class="button button--theme product__button" type="button">9900 ₽</button>
+            </div>
+          </li>
 
-          <img class="product__img" src="img/all/kvas.png" width="358" height="578"
-            alt="Вид главной страницы сайта Производителя кваса">
-          <div class="product__desc">
-            <a class="link" href="item.html">
-              <h3 class="text__caption product__caption">КВАСТ</h3>
-            </a>
-            <p class="text product_text">Промо-сайт производителя <br>крафтового кваса</p>
-            <button class="button button--theme product_button" type="button">9900 ₽</button>
-          </div>
-        </li>
+          <!-- Kvas -->
+          <li class="product__item">
+            <div class="product__header">
+              <span class="round"></span>
+              <span class="round"></span>
+              <span class="round"></span>
+            </div>
 
-      </ul>
+            <img class="product__img" src="img/all/kvas.png" width="358" height="578"
+              alt="Вид главной страницы сайта Производителя кваса">
+            <div class="product__desc">
+              <a class="link" href="item.html">
+                <h3 class="s-more w-bold">КВАСТ</h3>
+              </a>
+              <p class=" product__text">Промо-сайт производителя <br>крафтового кваса</p>
+              <button class="button button--theme product__button" type="button">9900 ₽</button>
+            </div>
+          </li>
 
-      <!-- Pagination -->
-      <ul class="list pagination__list">
-        <li class="pagination__item">
-          <a class="button button--theme3 button__page-prev" href=""><span>Предыдущая</span></a>
-        </li>
-        <li class="pagination__item">
-          <a class="button button--theme3 button__page page--current"><span>1</span></a>
-        </li>
-        <li class="pagination__item">
-          <a class="button button--theme3 button__page" href=""><span>2</span></a>
-        </li>
-        <li class="pagination__item">
-          <a class="button button--theme3 button__page" href=""><span>3</span></a>
-        </li>
-        <li class="pagination__item">
-          <a class="button button--theme3 button__page-next" href=""><span>Следующая</span></a>
-        </li>
-      </ul>
+        </ul>
 
-    </section>
+        <!-- Pagination -->
+
+        <ul class="list pagination__list t-upper w-medium" aria-label="Навигация по страницам каталога">
+          <li class="pagination__item">
+            <a class="button button--theme3 button__page-prev" href=""><span>Предыдущая</span></a>
+          </li>
+          <li class="pagination__item">
+            <a class="button button--theme3 button__page page--current"><span>1</span></a>
+          </li>
+          <li class="pagination__item">
+            <a class="button button--theme3 button__page" href=""><span>2</span></a>
+          </li>
+          <li class="pagination__item">
+            <a class="button button--theme3 button__page" href=""><span>3</span></a>
+          </li>
+          <li class="pagination__item">
+            <a class="button button--theme3 button__page-next" href=""><span>Следующая</span></a>
+          </li>
+        </ul>
+
+      </section>
+
+    </div>
 
   </main>
 
   <!-- Footer -->
   <footer class="footer">
     <!-- Contacts -->
-    <section class="contacts">
-      <h2 class="title visually-hidden">Контакты</h2>
-      <div class="contacts__map container">
-        <!-- here should be a map-->
+    <section class="contacts" aria-labelledby="contacts" id="section-contacts">
+      <h2 class="visually-hidden" id="contacts">Контакты</h2>
+      <div class="contacts__map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3993.651976450058!2d30.312976953965613!3d59.96820991964329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696315bc4e8ce61%3A0xe703c377f3424272!2sStudio%20212!5e0!3m2!1sru!2sru!4v1679068625406!5m2!1sru!2sru"
+          width="1200" height="415" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
         <div class="contacts__card">
           <address class="contacts__address">
-            <p class="title contacts__title">NЁRDS DESIGN STUDIO</p>
-            <p class="text contacts__text">наб. Реки Карповки,<br />5 лит П, Санкт-Петербург</p>
-            <p class="text phone__text">
-              <a class="link phone-link" href="tel:+78005558628">+7 800 555-86-28</a>
+            <p class="s-more t-upper w-bold">Nёrds design studio</p>
+            <p class="lh-small contacts__text">наб. Реки Карповки,<br />5 лит П, Санкт-Петербург</p>
+            <p class="lh-small phone__text">
+              <a class="link" href="tel:+78005558628">+7 800 555-86-28</a>
             </p>
           </address>
 
-          <button class="button button--theme contacts__button" type="button">Напишите нам</button>
+          <button class="button button--theme contacts__button" type="button">
+            <span class="button__text">Напишите нам</span>
+          </button>
         </div>
       </div>
 
@@ -354,25 +366,25 @@
 
     <!-- Social buttons-->
     <section class="social container">
-      <h2 class="title visually-hidden">Соцсети</h2>
+      <h2 class="visually-hidden">Соцсети</h2>
       <ul class="list social__list">
 
         <!-- VK -->
-        <li class="social__item">
+        <li>
           <a class="button button--theme4 social__button social__icon--1" href="">
-            <span class="visually-hidden ">Вконтакте</span>
+            <span class="visually-hidden">Вконтакте</span>
           </a>
         </li>
 
         <!-- FB -->
-        <li class="social__item">
+        <li>
           <a class="button button--theme4 social__button social__icon--2" href="">
             <span class="visually-hidden">Facebook</span>
           </a>
         </li>
 
         <!-- IG -->
-        <li class="social__item">
+        <li>
           <a class="button button--theme4 social__button social__icon--3" href="">
             <span class="visually-hidden">Нельзяграм</span>
           </a>
@@ -381,8 +393,8 @@
 
       <!-- Offer -->
       <div class="social__offer">
-        <p class="text social__text">
-          <span class="title social__title">Давайте дружить, это выгодно!</span>
+        <p>
+          <span class="social__title s-large w-bold hl-small">Давайте дружить, это выгодно!</span>
           Скидка 10% для друзей из социальных сетей.
         </p>
       </div>
@@ -391,6 +403,33 @@
 
   </footer>
 
+  <!-- Modal form-->
+  <section class="modal connection-modal" id="connection-modal" aria-labelledby="form-title" role="dialog">
+    <div class="connection-header">
+      <h2 class="visually-hidden" id="form-title">Форма обратной связи</h2>
+      <p class="connection__title s-big w-bold lh-small">Напишите нам</p>
+      <button class="close-button" type="button"><span class="visually-hidden">Закрыть</span></button>
+    </div>
+
+    <form class="connection__form" action="https://echo.htmlacademy.ru" method="post" target="_blank">
+
+      <label>
+        <span class="label w-bold">Ваше имя:</span>
+        <input class="input" name="name" id="name" placeholder="Имя Фамилия" required />
+      </label>
+      <label>
+        <span class="label w-bold">Ваш email:</span>
+        <input class="input" name="email" id="email" type="email" placeholder="email@example.ru" required />
+      </label>
+      <label>
+        <span class="label w-bold">Текст письма:</span>
+        <textarea class="input input-multyline" name="text" id="text" placeholder="В произвольной форме"></textarea>
+      </label>
+      <button class="button connection__button button--theme t-upper" type="submit">Отправить</button>
+    </form>
+
+  </section>
+  <script src="modal.js"></script>
 </body>
 
 </html>
